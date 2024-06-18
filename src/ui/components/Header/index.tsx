@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { ms } from 'react-native-size-matters'
-import { colors, fontSizes } from '../../../config/theme'
+import { colors } from '../../../config/theme'
 import Label from '../Label'
 
 type Props = {

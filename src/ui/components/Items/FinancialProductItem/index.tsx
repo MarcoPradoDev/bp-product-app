@@ -3,16 +3,16 @@ import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ms } from 'react-native-size-matters'
 import { colors, fontSizes } from '../../../../config/theme';
-import { IProduct } from '../../../../data/entities/ProductModel';
+import { IFinancialProduct } from '../../../../data/entities/ProductModel';
 
 type Props = {
   onPress: (id: string) => void,
-  product: IProduct
+  product: IFinancialProduct
 }
 
-const BusinessProductItem = ({ onPress, product }: Props) => {
+const FinancialProductItem = ({ onPress, product }: Props) => {
   return (
-    <TouchableOpacity onPress={() => { onPress(product.id) }} style={styles.container} activeOpacity={.65}>
+    <TouchableOpacity testID='item-product' onPress={() => { onPress(product.id) }} style={styles.container} activeOpacity={.65}>
       <View>
         <Text style={styles.text}>{product.name}</Text>
         <Text style={[styles.text, { color: colors.grayText }]}>ID: {product.id}</Text>
@@ -24,7 +24,7 @@ const BusinessProductItem = ({ onPress, product }: Props) => {
   )
 }
 
-export default BusinessProductItem
+export default FinancialProductItem
 
 const styles = StyleSheet.create({
   text: {

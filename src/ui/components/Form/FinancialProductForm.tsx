@@ -9,18 +9,18 @@ import { productSchema } from '../../../utils/schemes';
 import Button from '../Button';
 import DatePickerController from '../TextInput/Controllers/DatePickerController';
 import InputController from '../TextInput/Controllers/InputController';
-import { IProduct } from '../../../data/entities/ProductModel';
-import useBusinessProducts from '../../../hooks/useBusinessProducts';
+import { IFinancialProduct } from '../../../data/entities/ProductModel';
+import useFinancialProducts from '../../../hooks/useFinancialProducts';
 import LoadingModal from '../Modal/LoadingModal';
 
 type Props = {
-  productDefault?: IProduct,
+  productDefault?: IFinancialProduct,
   goToProducts: () => void
 }
 
-const ProductForm = ({ productDefault, goToProducts }: Props) => {
+const FinancialProductForm = ({ productDefault, goToProducts }: Props) => {
 
-  const { createProduct, updateProductById, validProductId } = useBusinessProducts()
+  const { createProduct, updateProductById, validProductId } = useFinancialProducts()
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -56,7 +56,7 @@ const ProductForm = ({ productDefault, goToProducts }: Props) => {
     setIsLoading(true)
     const reviewDate = addYears(data.releaseDate, 1).toISOString().split('T')[0]
     const releaseDate = data.releaseDate.toISOString().split('T')[0]
-    const product: IProduct = { ...productDefault, ...data, date_release: releaseDate, date_revision: reviewDate }
+    const product: IFinancialProduct = { ...productDefault, ...data, date_release: releaseDate, date_revision: reviewDate }
     if (productDefault) {
       const updateRes = await updateProductById(productDefault.id, product)
       setIsLoading(false)
@@ -116,4 +116,4 @@ const ProductForm = ({ productDefault, goToProducts }: Props) => {
   )
 }
 
-export default ProductForm
+export default FinancialProductForm

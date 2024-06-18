@@ -1,24 +1,23 @@
-import { ActivityIndicator, FlatList, ListRenderItem, StyleProp, View, ViewStyle } from 'react-native'
 import React from 'react'
-import BusinessProductItem from '../../Items/BusinessProductItem'
-import { ms, s } from 'react-native-size-matters'
+import { ActivityIndicator, FlatList, ListRenderItem, StyleProp, View, ViewStyle } from 'react-native'
+import { ms } from 'react-native-size-matters'
 import { colors } from '../../../../config/theme'
-import { IProduct } from '../../../../data/entities/ProductModel'
-import Label from '../../Label'
+import { IFinancialProduct } from '../../../../data/entities/ProductModel'
 import { StatusService } from '../../../../utils/helpers'
+import FinancialProductItem from '../../Items/FinancialProductItem'
+import Label from '../../Label'
 
 type Props = {
   containerStyle?: StyleProp<ViewStyle>,
   onPress: (id: string) => void,
   statusRes: { status: StatusService, message?: string }
-  data: IProduct[],
-
+  data: IFinancialProduct[],
 }
 
-const BusinessProductList = ({ containerStyle, onPress, data, statusRes }: Props) => {
+const FinancialProducList = ({ containerStyle, onPress, data, statusRes }: Props) => {
 
-  const renderItem: ListRenderItem<IProduct> = ({ item }) => {
-    return <BusinessProductItem
+  const renderItem: ListRenderItem<IFinancialProduct> = ({ item }) => {
+    return <FinancialProductItem
       key={item.id}
       product={item} onPress={onPress} />
   }
@@ -46,4 +45,4 @@ const BusinessProductList = ({ containerStyle, onPress, data, statusRes }: Props
   )
 }
 
-export default BusinessProductList
+export default FinancialProducList

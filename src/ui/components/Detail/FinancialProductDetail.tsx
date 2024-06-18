@@ -4,14 +4,14 @@ import { ms } from 'react-native-size-matters'
 import Label from '../Label'
 import LabelImage from '../Label/LabelImage'
 import RowLabel from '../Label/RowLabel'
-import { IProduct } from '../../../data/entities/ProductModel'
+import { IFinancialProduct } from '../../../data/entities/ProductModel'
 
 type Props = {
   containerStyle?: StyleProp<ViewStyle>,
-  product: IProduct
+  product: IFinancialProduct
 }
 
-const BusinessProductDetail = ({ product, containerStyle }: Props) => {
+const FinancialProductDetail = ({ product, containerStyle }: Props) => {
   return (
     <View style={{ flex: 1 }}>
       <Label fontWeight='bold' size='xlarge'>ID: {product.id}</Label>
@@ -27,4 +27,4 @@ const BusinessProductDetail = ({ product, containerStyle }: Props) => {
   )
 }
 
-export default BusinessProductDetail
+export default FinancialProductDetail

@@ -3,14 +3,14 @@ import * as React from 'react';
 import ProductsScreen from '../screens/FinancialProductsScreen';
 import ProductDetailScreen from '../screens/FinancialProductDetailScreen';
 import AddEditProductScreen from '../screens/AddEditFinancialProductScreen';
-import { IProduct } from '../../data/entities/ProductModel';
+import { IFinancialProduct } from '../../data/entities/ProductModel';
 
 const Stack = createNativeStackNavigator();
 
 export type MainStackParamList = {
   Products: undefined;
   ProductDetail: { id: string };
-  AddEditProduct: { product?: IProduct };
+  AddEditProduct: { product?: IFinancialProduct };
 }
 
 function MainStack() {

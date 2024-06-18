@@ -1,6 +1,6 @@
 import { ApiResponse, IBaseResponse } from "../entities/DefaultRes";
 
-const BASE_URL = 'https://1dda-2800-200-e630-15cc-5082-bb68-f300-3e42.ngrok-free.app';
+const BASE_URL = 'https://6468-2800-200-e630-15cc-9988-ac04-8c1a-b679.ngrok-free.app';
 
 export default {
   get: async ({ url, controller }: { url: string, controller?: AbortController }): Promise<ApiResponse> => {

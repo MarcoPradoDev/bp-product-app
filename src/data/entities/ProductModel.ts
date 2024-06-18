@@ -1,6 +1,6 @@
 import { IBaseResponse } from "./DefaultRes";
 
-export interface IProduct {
+export interface IFinancialProduct {
   id: string;
   name: string;
   description: string;
@@ -9,11 +9,11 @@ export interface IProduct {
   date_revision: string;
 }
 
-export interface IProductCreateUpdate {
-  data: IProduct;
+export interface IFinancialProductCreateUpdate {
+  data: IFinancialProduct;
   message: string;
 }
 
-export interface ProductExistRes extends IBaseResponse {
+export interface IFinancialProductExistRes extends IBaseResponse {
   isIdExist?: boolean;
 }

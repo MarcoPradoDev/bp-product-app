@@ -1,16 +1,14 @@
 import { useState } from "react"
-import { IProduct, ProductExistRes } from "../data/entities/ProductModel"
+import { IFinancialProduct, IFinancialProductExistRes } from "../data/entities/ProductModel"
 import * as apiBusinessProduct from "../data/services/apiBusinessProduct"
 import { StatusService } from "../utils/helpers"
 import { IBaseResponse } from "../data/entities/DefaultRes"
 
-const useBusinessProducts = () => {
+const useFinancialProducts = () => {
 
-  const [bProducts, setBProducts] = useState<IProduct[]>([])
+  const [bProducts, setBProducts] = useState<IFinancialProduct[]>([])
   const [statusRes, setStatusRes] = useState<{ status: StatusService, message?: string }>({ status: StatusService.LOADING, message: '' })
-  const [bProduct, setBProduct] = useState<Partial<IProduct>>()
-
-
+  const [bProduct, setBProduct] = useState<Partial<IFinancialProduct>>()
 
   const filterProducts = async (search: string, controller: AbortController) => {
     setStatusRes({ status: StatusService.LOADING })
@@ -42,17 +40,17 @@ const useBusinessProducts = () => {
     return res
   }
 
-  const updateProductById = async (id: string, product: IProduct): Promise<IBaseResponse> => {
+  const updateProductById = async (id: string, product: IFinancialProduct): Promise<IBaseResponse> => {
     const res = await apiBusinessProduct.updateProduct(id, product)
     return { isSuccess: res.isSuccess!!, message: res.message }
   }
 
-  const createProduct = async (product: IProduct): Promise<IBaseResponse> => {
+  const createProduct = async (product: IFinancialProduct): Promise<IBaseResponse> => {
     const res = await apiBusinessProduct.createProduct(product)
     return { isSuccess: res.isSuccess!!, message: res.message }
   }
 
-  const validProductId = async (id: string): Promise<ProductExistRes> => {
+  const validProductId = async (id: string): Promise<IFinancialProductExistRes> => {
     const res = await apiBusinessProduct.validProductId(id)
     return res
   }
@@ -60,4 +58,4 @@ const useBusinessProducts = () => {
   return { filterProducts, bProducts, statusRes, getProductById, bProduct, deleteProductById, createProduct, updateProductById, validProductId }
 }
 
-export default useBusinessProducts
+export default useFinancialProducts
